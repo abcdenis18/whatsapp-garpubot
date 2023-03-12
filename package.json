@@ -1,5 +1,5 @@
 {
-  "author": "Try Catch DEV (https://www.tiktok.com/@try_catch_)",
+  "author": "garpupopmie",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
