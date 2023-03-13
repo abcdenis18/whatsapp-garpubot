@@ -15,7 +15,7 @@ client.on('qr', qr => {
 
 client.on('ready', () => {
     const number = "6281310424252";
-    const message = "Hello, im ready!";
+    const message = "Hi boss, im ready now!:)";
     const chatId = number + "@c.us";
 
     //sending message;
@@ -30,6 +30,7 @@ client.on('message', async msg => {
         "#hello",
         "#ask:",
         "#edit:",
+        "#about"
     ];
 
     console.log("Message Object => ", msg);
@@ -60,9 +61,13 @@ client.on('message', async msg => {
             await ChatAIHandler(text, msg);
         }
 
+        if(text.includes("#about")){
+            msg.reply("Hello " + msg._data.notifyName +", im a BOT that might be able to help u.\nMy boss call me Garpu, what a weirdo name. But he made me with ♥\n\nMy boss :\nIG: @abcdenis");
+        }
+
     } else {
         if (msg.author == undefined) {
-            msg.reply('Hello ' + msg._data.notifyName +', u can ask me something :)\n\nCommands:\n- *#hello*\n- *#ask:Your Question Here...*');
+            msg.reply('Hello ' + msg._data.notifyName +', u can ask me something :)\n\nCommands:\n- *#about*\n- *#hello*\n- *#ask:Your Question Here...*');
         }
     }
 

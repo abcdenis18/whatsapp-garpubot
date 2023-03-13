@@ -14,5 +14,6 @@ or RUN `npm run dev` for development
 
 ## Available Command
 Command
+`#about`
 `#hello`
 `#ask:Your question here` `example: #as:Tell me what is BOT?`

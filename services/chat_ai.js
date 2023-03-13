@@ -8,7 +8,7 @@ const ChatAIHandler = async (text, msg) => {
         return msg.reply('Wrong format, commands:\n- *#ask:Your Question...*');
     }
 
-    msg.reply('I got you, your message is on process!');
+    msg.reply('I got you, your answer is on process...');
 
     const question = cmd[1];
     const response = await ChatGPTRequest(question)
@@ -34,14 +34,10 @@ const ChatGPTRequest = async (text) => {
         url: 'https://api.openai.com/v1/chat/completions',
         data: {
             model: "gpt-3.5-turbo",
-            // model: "text-davinci-003",
             messages: [{
                 role: "user",
                 content: text,
             }],
-            // prompt: text,
-            // max_tokens: 1000,
-            // temperature: 0
         },
         headers: {
             "accept": "application/json",
