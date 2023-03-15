@@ -1,27 +1,35 @@
 const axios = require('axios');
 const { API_KEY_OPEN_AI } = require('../config');
 
-const ChatAIHandler = async (text, msg) => {
-    const cmd = text.split(':');
+const ChatAIHandler = async (text, msg, userID, userChats) => {
+    console.log("User ID => ", userID);
+    console.log("User Chats => ", userChats);
 
-    if (cmd.length < 2) {
+    if (text.length < 2) {
         return msg.reply('Wrong format, commands:\n- *#ask:Your Question...*');
     }
 
     msg.reply('I got you, your answer is on process...');
 
-    const question = cmd[1];
-    const response = await ChatGPTRequest(question)
+    const question = text;
+
+    const response = await ChatGPTRequest(text, userChats)
 
     if (!response.success) {
         return msg.reply(response.message);
-    }
+    }  
 
-    return msg.reply(response.data);
+    console.log("Result => ", response.data);
+    var message = response.data.content.replace("\n\n", "");
+    message += "\n\n- GarpuBOT";
+
+    msg.reply(message);
+
+    return response;
 }
 
 
-const ChatGPTRequest = async (text) => {
+const ChatGPTRequest = async (text, userChats) => {
 
     const result = {
         success: false,
@@ -34,10 +42,7 @@ const ChatGPTRequest = async (text) => {
         url: 'https://api.openai.com/v1/chat/completions',
         data: {
             model: "gpt-3.5-turbo",
-            messages: [{
-                role: "user",
-                content: text,
-            }],
+            messages: userChats,
         },
         headers: {
             "accept": "application/json",
@@ -52,9 +57,7 @@ const ChatGPTRequest = async (text) => {
 
                 if (choices && choices.length) {
                     result.success = true;
-                    // result.data = choices[0].text;
-                    result.data = choices[0].message.content.replace("\n\n", "");
-                    result.data +=  "\n\n- GarpuBOT";
+                    result.data = choices[0].message;
                 }
 
             } else {
@@ -64,6 +67,7 @@ const ChatGPTRequest = async (text) => {
             return result;
         })
         .catch((error) => {
+            console.log("Error  : ", error);
             result.message = "Error : " + error.message;
             return result;
         });
