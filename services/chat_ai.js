@@ -67,8 +67,12 @@ const ChatGPTRequest = async (text, userChats) => {
             return result;
         })
         .catch((error) => {
-            console.log("Error  : ", error);
-            result.message = "Error : " + error.message;
+            if(error.message.toString().includes("429")){
+                result.message = "Sorry, too many requests & please try again later...";
+            }else{
+                result.message = "Error : " + error.message;
+            }
+            
             return result;
         });
 }
