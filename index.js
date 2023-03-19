@@ -10,13 +10,15 @@ const { fileURLToPath } = require('url');
 const userChats = new Map();
 
 const client = new Client({
-    authStrategy: new LocalAuth(),
-    puppeteer: {
-        executablePath: '/usr/bin/chromium-browser',
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        headless: true,
-        // channel: 'chrome',
-    }
+    authStrategy: new LocalAuth({
+        puppeteer: {
+            // executablePath: '/usr/bin/chromium-browser',
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
+            headless: true,
+            // channel: 'chrome',
+        }
+    }),
+
 });
 
 client.on('qr', qr => {
