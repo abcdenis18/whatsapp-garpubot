@@ -15,7 +15,7 @@ const client = new Client({
         // executablePath: '/usr/bin/chromium-browser',
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
         headless: true,
-        // channel: 'chrome',
+        channel: 'chrome',
     }
 });
 
