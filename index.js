@@ -12,10 +12,9 @@ const userChats = new Map();
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-        // executablePath: '/usr/bin/chromium-browser',
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
         headless: true,
-        channel: 'chrome',
+        executablePath: './node_modules/puppeteer/.local-chromium/linux-599821/chrome-linux/chrome',
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
     }
 });
 
