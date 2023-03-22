@@ -126,14 +126,8 @@ client.on('message', async msg => {
             const base64 = msg._data.body;
             const mimeType = msg._data.mimetype;
             const tempPath = './downloaded-media/';
-
-
-
-
-            const extension = mime.extension(media.mimetype);
-
+            const extension = mime.extension(mimeType);
             const filename = new Date().getTime();
-
             const fullPath = tempPath + filename + '.' + extension;
 
             if (!fs.existsSync(tempPath)) {
