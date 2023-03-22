@@ -14,7 +14,7 @@ const client = new Client({
     puppeteer: {
         headless: true,
         // executablePath: '/path/to/Chrome',
-        executablePath: '/path/to/Chrome',
+        executablePath: '/usr/bin/google-chrome-stable',
         // executablePath: './node_modules/puppeteer/.local-chromium/linux-599821/chrome-linux/chrome',
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
         // channel: "chrome",
