@@ -1,6 +1,7 @@
 {
   "author": "garpupopmie",
   "scripts": {
+    "build": "npm run clean && npm run build",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
