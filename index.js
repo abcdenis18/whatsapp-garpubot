@@ -13,7 +13,7 @@ const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
-        executablePath: './node_modules/puppeteer/.local-chromium/linux-599821/chrome-linux/chrome',
+        // executablePath: './node_modules/puppeteer/.local-chromium/linux-599821/chrome-linux/chrome',
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
         // channel: "chrome",
     }
