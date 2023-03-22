@@ -1,7 +1,6 @@
 {
   "author": "garpupopmie",
   "scripts": {
-    "install": "npm install",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
