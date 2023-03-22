@@ -17,7 +17,7 @@ const client = new Client({
         executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
         // executablePath: './node_modules/puppeteer/.local-chromium/linux-599821/chrome-linux/chrome',
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        channel: "chrome",
+        // channel: "chrome",
     }
 });
 
