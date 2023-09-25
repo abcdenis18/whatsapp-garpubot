@@ -1,7 +1,5 @@
 # GarpuBOT (WhatsApp Bot)
 
-# My another space: [Instagram](https://www.instagram.com/abcdenis)
-
 <!-- ![Preview](/demo/demo1.jpeg) -->
 
 ## How to run project?
@@ -17,3 +15,5 @@ Command
 `#about`
 `#hello`
 `#ask:Your question here` `example: #as:Tell me what is BOT?`
+
+### My another space: [Instagram](https://www.instagram.com/abcdenis)
